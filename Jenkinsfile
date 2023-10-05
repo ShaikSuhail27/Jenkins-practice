@@ -7,13 +7,17 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 echo 'doing the building'
-                
+
                 '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                 sh '''
+                echo 'doing the testing'
+                
+                '''
             }
         }
         stage('Deploy') {
