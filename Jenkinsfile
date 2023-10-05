@@ -5,6 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh '''
+                echo 'doing the building'
+                
+                '''
             }
         }
         stage('Test') {
