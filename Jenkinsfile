@@ -3,6 +3,9 @@ pipeline {
     // triggers {
     //     cron('* * * * *')
     // }
+    options {
+        ansiColor('xterm')
+    }
     environment { 
         USER = 'suhail'
     }
