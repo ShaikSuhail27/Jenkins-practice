@@ -1,7 +1,10 @@
 pipeline {
     agent { node { label 'Agent-1' } }
-    triggers {
-        cron('* * * * *')
+    // triggers {
+    //     cron('* * * * *')
+    // }
+    environment { 
+        USER = 'suhail'
     }
      parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
@@ -46,6 +49,14 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+            }
+        }
+        stage('Prod') {
+            when {
+                environment name: 'USER', value: 'suhail'
+            }
+            steps {
+                echo 'Deploying to production'
             }
         }
     }
